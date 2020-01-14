@@ -1,0 +1,1 @@
+# osx-electron-preferences
