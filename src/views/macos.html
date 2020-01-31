@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <title>Preferences</title>
+        <link rel="stylesheet" href="macos.css" />
+    </head>
+    <body class="">
+        <section class="title">
+            <h1>Preferences</h1>
+            <nav>
+                <ul>
+                    <li class="active">
+                        <img src="../assets/general.png" alt="General" />General
+                    </li>
+                    <li>
+                        <img
+                            src="../assets/userAccount.png"
+                            alt="Account"
+                        />Account
+                    </li>
+                    <li>
+                        <img
+                            src="../assets/advanced.png"
+                            alt="Advanced"
+                        />Advanced
+                    </li>
+                </ul>
+            </nav>
+        </section>
+        <section class="page">
+            <input type="text" />
+            <input type="number" />
+            <p>Take a break every</p>
+            <select name="hours" id="hours">
+                <option value="0">0 hours</option>
+                <option value="1">1 hours</option>
+            </select>
+            <button type="button">Button</button>
+            <input list="browsers" name="browser" />
+            <datalist id="browsers">
+                <option value="Internet Explorer"> </option>
+                <option value="Firefox"> </option>
+                <option value="Chrome"> </option>
+                <option value="Opera"> </option>
+                <option value="Safari"> </option>
+            </datalist>
+            <input type="radio" name="gender" value="male" checked /> Male
+            <input type="radio" name="gender" value="female" /> Female
+            <input type="radio" name="gender" value="other" /> Other
+            <input type="checkbox" name="vehicle1" value="Bike" /> I have a bike
+            <input type="checkbox" name="vehicle2" value="Car" /> I have a car
+            <input type="color" name="favcolor" />
+        </section>
+    </body>
+</html>
