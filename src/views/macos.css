@@ -1,6 +1,10 @@
 :root {
-    --primary-color: #307cf6;
+    --primary-color: hsl(219, 89%, 63%);
+    --primary-very-lighten-color: hsla(219, 59%, 76%, 0.1);
+    --primary-lighten-color: hsl(218, 85%, 71%);
+    --primary-darken-color: hsl(220, 92%, 56%);
     --primary-text-color: #000000;
+    --primary-text-invert-color: #ffffff;
 
     --window-background: #ececec;
     --title-background: linear-gradient(#e5e5e5, #cdcdcd);
@@ -14,11 +18,38 @@
     --nav-active-background-blur: rgba(133, 133, 133, 0.1);
     --nav-active-text: #303030;
     --nav-active-text-blur: #a5a5a5;
+
+    --input-background: #ffffff;
+    --input-text: #2d2d2d;
+    --input-border: #ffffff;
+    --input-shadow: 0 0.2px 0 1px rgba(26, 26, 26, 0.1);
+
+    --checkbox-background: #ffffff;
+    --checkbox-active-background: #f0f0f0;
+    --checkbox-border: #c3c3c3;
+    --checkbox-active-border: var(--primary-darken-color);
+    --checkbox-shadow: inset 0 0.5px 0 0.5px #f3f3f3;
+    --radio-circle: #ffffff;
+
+    --button-background: #ffffff;
+    --button-active-background: linear-gradient(
+        var(--primary-lighten-color),
+        var(--primary-darken-color)
+    );
+    --button-border: #d7d7d7;
+    --button-border-bottom: #bfbfbf;
+    --button-disabled-background: #f6f6f6;
+    --button-disabled-border: #e1e1e1;
+    --button-disabled-border-bottom: #d5d5d5;
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --primary-text-color: #ffffff;
+        --primary-color: #2f7bf7;
+        --primary-very-lighten-color: hsla(219, 59%, 76%, 0.1);
+        --primary-lighten-color: #2e6bde;
+        --primary-darken-color: #285dc0;
+        --primary-text-color: #dfdfdf;
 
         --window-background: #2f3031;
         --title-background: linear-gradient(#414343, #353637);
@@ -32,18 +63,49 @@
         --nav-active-background-blur: rgba(150, 150, 150, 0.1);
         --nav-active-text: #c4c5c6;
         --nav-active-text-blur: #767677;
+
+        --input-background: #646465;
+        --input-text: #e4e4e4;
+        --input-border: #767676;
+        --input-shadow: 0 0.2px 0 1px #282829;
+
+        --checkbox-background: linear-gradient(#4f4f50, #6a6b6b);
+        --checkbox-active-background: #7a7a7b;
+        --checkbox-border: #4f5050;
+        --checkbox-active-border: var(--checkbox-border);
+        --checkbox-shadow: inset 0 0.5px 0 0.1px #616262,
+            0 0.2px 0 0.5px #272829;
+
+        --button-background: #636465;
+        --button-border: #d7d7d7;
+        --button-border-bottom: #bfbfbf;
+        --button-disabled-background: #494b4d;
+        --button-disabled-border: #e1e1e1;
+        --button-disabled-border-bottom: #d5d5d5;
+    }
+}
+
+@keyframes outline {
+    0% {
+        box-shadow: 0 0.2px 0 1px rgba(26, 26, 26, 0.1),
+            0 0 3px 12px var(--primary-very-lighten-color);
+    }
+    100% {
+        box-shadow: 0 0.2px 0 1px var(--primary-color),
+            0 0 0.5px 3.5px var(--primary-lighten-color);
     }
 }
 
 * {
     margin: 0;
     padding: 0;
+    font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
+        'Arial', sans-serif;
 }
 
 body {
     background-color: var(--window-background);
-    font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
-        'Arial', sans-serif;
+    color: var(--primary-text-color);
     user-select: none;
 }
 
@@ -113,5 +175,206 @@ img {
 }
 
 .page {
-    padding: 15px 0;
+    padding: 15px 10px;
+}
+
+input:not([type='radio']):not([type='checkbox']):not([type='button']) {
+    background-color: var(--input-background);
+    color: var(--input-text);
+    position: relative;
+    font-size: 0.8em;
+    padding: 2px 8px;
+    border: none;
+    border-radius: 3px;
+    box-shadow: var(--input-shadow);
+    outline: none;
+    margin: 4px;
+    border-top: 1px solid var(--input-border);
+}
+
+input:not([type='radio']):not([type='checkbox']):not([type='button']):focus {
+    animation: outline 0.15s 0.1s ease-in forwards;
+}
+
+.custom-checkbox {
+    display: inline-block;
+    position: relative;
+    user-select: none;
+}
+
+.custom-checkbox input {
+    position: absolute;
+    opacity: 0;
+    height: 0;
+    width: 0;
+}
+
+.custom-checkbox .checkmark {
+    display: inline-block;
+    position: relative;
+    top: 1px;
+    height: 12px;
+    width: 12px;
+    border-radius: 2.5px;
+    box-shadow: var(--checkbox-shadow);
+    background: var(--checkbox-background);
+}
+
+body:not(.blurred) .custom-checkbox input:checked ~ .checkmark {
+    background: var(--button-active-background);
+    box-shadow: none;
+}
+
+body:not(.blurred) .custom-checkbox input:checked:active ~ .checkmark {
+    background: var(--primary-darken-color);
+}
+
+.checkmark:after {
+    content: '';
+    position: absolute;
+    display: none;
+}
+
+.custom-checkbox input:checked ~ .checkmark:after,
+.custom-radio input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.custom-checkbox input:active ~ .checkmark,
+.custom-radio input:active ~ .checkmark {
+    background: var(--checkbox-active-background);
+}
+
+.custom-checkbox .checkmark:after {
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    width: 9px;
+    height: 9px;
+    background: url('../assets/checkmark.svg');
+    background-size: cover;
+    filter: opacity(0.95);
+}
+
+.custom-radio {
+    display: inline-block;
+    position: relative;
+    user-select: none;
+}
+
+.custom-radio input {
+    position: absolute;
+    opacity: 0;
+    height: 0;
+    width: 0;
+}
+
+.custom-radio .checkmark {
+    display: inline-block;
+    position: relative;
+    top: 3px;
+    height: 14px;
+    width: 14px;
+    border-radius: 12px;
+    box-shadow: var(--checkbox-shadow);
+    background: var(--checkbox-background);
+}
+
+body:not(.blurred) .custom-radio input:checked ~ .checkmark {
+    background: var(--button-active-background);
+    box-shadow: none;
+}
+
+body:not(.blurred) .custom-radio input:checked:active ~ .checkmark {
+    background: var(--primary-darken-color);
+}
+
+.custom-radio .checkmark:after {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 6px;
+    height: 6px;
+    border-radius: 10px;
+    background: var(--radio-circle);
+    box-shadow: inset 0 0 0 0.2px var(--primary-color),
+        0 0.3px 0 0.2px rgba(0, 0, 0, 0.3);
+}
+
+button {
+    background: var(--button-background);
+    font-size: 0.8em;
+    border-radius: 4px;
+    padding: 2px 15px;
+    border: 1px solid var(--button-border);
+    border-bottom: 1px solid var(--button-border-bottom);
+    outline: none;
+}
+
+button:disabled {
+    background: var(--button-disabled-background);
+    border: 1px solid var(--button-disabled-border);
+    border-bottom: 1px solid var(--button-disabled-border-bottom);
+}
+
+button:active,
+body:not(.blurred) button.primary {
+    background: linear-gradient(
+        var(--primary-lighten-color),
+        var(--primary-darken-color)
+    );
+    color: var(--primary-text-invert-color);
+    border: 1px solid var(--primary-color);
+}
+
+button.primary:active {
+    filter: brightness(90%);
+}
+
+@media (prefers-color-scheme: dark) {
+    .custom-checkbox .checkmark {
+        height: 14px;
+        width: 14px;
+        border: none;
+    }
+    .custom-checkbox .checkmark:after {
+        top: 2px;
+        left: 2px;
+    }
+
+    .custom-radio .checkmark {
+        height: 16px;
+        width: 16px;
+        border: none;
+    }
+    .custom-radio .checkmark:after {
+        top: 5px;
+        left: 5px;
+    }
+
+    button.primary:active {
+        filter: brightness(110%);
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    .custom-checkbox .checkmark,
+    .custom-radio .checkmark {
+        border: 1px solid var(--checkbox-border);
+    }
+
+    body:not(.blurred) .custom-checkbox input:checked ~ .checkmark,
+    body:not(.blurred) .custom-radio input:checked ~ .checkmark {
+        border: 1px solid var(--primary-color);
+    }
+
+    .blurred .custom-checkbox .checkmark:after {
+        filter: invert(1) opacity(0.75);
+    }
+
+    .blurred .custom-radio .checkmark:after {
+        background: #404040;
+        box-shadow: inset 0 0 0 0.2px var(--button-background);
+    }
 }

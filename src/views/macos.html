@@ -27,14 +27,16 @@
             </nav>
         </section>
         <section class="page">
-            <input type="text" />
+            <input type="text" value="System Default" />
             <input type="number" />
             <p>Take a break every</p>
             <select name="hours" id="hours">
                 <option value="0">0 hours</option>
                 <option value="1">1 hours</option>
             </select>
-            <button type="button">Button</button>
+            <button type="button" disabled>Disabled</button>
+            <button type="button">Cancel</button>
+            <button type="button" class="primary">Add</button>
             <input list="browsers" name="browser" />
             <datalist id="browsers">
                 <option value="Internet Explorer"> </option>
@@ -43,11 +45,31 @@
                 <option value="Opera"> </option>
                 <option value="Safari"> </option>
             </datalist>
-            <input type="radio" name="gender" value="male" checked /> Male
-            <input type="radio" name="gender" value="female" /> Female
-            <input type="radio" name="gender" value="other" /> Other
-            <input type="checkbox" name="vehicle1" value="Bike" /> I have a bike
-            <input type="checkbox" name="vehicle2" value="Car" /> I have a car
+            <label class="custom-radio">
+                <input type="radio" name="gender" value="male" checked />
+                <span class="checkmark"></span>
+                Male
+            </label>
+            <label class="custom-radio">
+                <input type="radio" name="gender" value="female" />
+                <span class="checkmark"></span>
+                Female
+            </label>
+            <label class="custom-radio">
+                <input type="radio" name="gender" value="other" />
+                <span class="checkmark"></span>
+                Other
+            </label>
+            <label class="custom-checkbox">
+                <input type="checkbox" name="vehicle1" value="Bike" checked />
+                <span class="checkmark"></span>
+                Bike
+            </label>
+            <label class="custom-checkbox">
+                <input type="checkbox" name="vehicle2" value="Car" />
+                <span class="checkmark"></span>
+                Car
+            </label>
             <input type="color" name="favcolor" />
         </section>
     </body>
