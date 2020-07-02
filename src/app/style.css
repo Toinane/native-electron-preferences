@@ -1,0 +1,114 @@
+:root {
+    --primary-color: hsl(219, 89%, 63%);
+    --primary-very-lighten-color: hsla(219, 59%, 76%, 0.1);
+    --primary-lighten-color: hsl(218, 85%, 71%);
+    --primary-darken-color: hsl(220, 92%, 56%);
+    --primary-text-color: #000000;
+    --primary-text-invert-color: #ffffff;
+
+    --window-background: #ececec;
+    --title-background: linear-gradient(#e5e5e5, #cdcdcd);
+    --title-background-blur: #f6f6f6;
+    --title-text: #4e4e4e;
+    --title-text-blur: #b1b1b1;
+    --title-border: #b2b2b2;
+    --title-border-blur: #dadada;
+
+    --nav-active-background: rgba(26, 26, 26, 0.1);
+    --nav-active-background-blur: rgba(133, 133, 133, 0.1);
+    --nav-active-text: #303030;
+    --nav-active-text-blur: #a5a5a5;
+
+    --input-background: #ffffff;
+    --input-text: #2d2d2d;
+    --input-border: #ffffff;
+    --input-shadow: 0 0.2px 0 1px rgba(26, 26, 26, 0.1);
+
+    --checkbox-background: #ffffff;
+    --checkbox-active-background: #f0f0f0;
+    --checkbox-border: #c3c3c3;
+    --checkbox-active-border: var(--primary-darken-color);
+    --checkbox-shadow: inset 0 0.5px 0 0.5px #f3f3f3;
+    --radio-circle: #ffffff;
+
+    --button-background: #ffffff;
+    --button-active-background: linear-gradient(
+        var(--primary-lighten-color),
+        var(--primary-darken-color)
+    );
+    --button-border: #d7d7d7;
+    --button-border-bottom: #bfbfbf;
+    --button-disabled-background: #f6f6f6;
+    --button-disabled-border: #e1e1e1;
+    --button-disabled-border-bottom: #d5d5d5;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --primary-color: #2f7bf7;
+        --primary-very-lighten-color: hsla(219, 59%, 76%, 0.1);
+        --primary-lighten-color: #2e6bde;
+        --primary-darken-color: #285dc0;
+        --primary-text-color: #dfdfdf;
+
+        --window-background: #2f3031;
+        --title-background: linear-gradient(#414343, #353637);
+        --title-background-blur: #2a2b2c;
+        --title-text: #b3b4b5;
+        --title-text-blur: #696a6b;
+        --title-border: #151516;
+        --title-border-blur: #111111;
+
+        --nav-active-background: rgba(250, 250, 250, 0.1);
+        --nav-active-background-blur: rgba(150, 150, 150, 0.1);
+        --nav-active-text: #c4c5c6;
+        --nav-active-text-blur: #767677;
+
+        --input-background: #646465;
+        --input-text: #e4e4e4;
+        --input-border: #767676;
+        --input-shadow: 0 0.2px 0 1px #282829;
+
+        --checkbox-background: linear-gradient(#4f4f50, #6a6b6b);
+        --checkbox-active-background: #7a7a7b;
+        --checkbox-border: #4f5050;
+        --checkbox-active-border: var(--checkbox-border);
+        --checkbox-shadow: inset 0 0.5px 0 0.1px #616262,
+            0 0.2px 0 0.5px #272829;
+
+        --button-background: #636465;
+        --button-border: #d7d7d7;
+        --button-border-bottom: #bfbfbf;
+        --button-disabled-background: #494b4d;
+        --button-disabled-border: #e1e1e1;
+        --button-disabled-border-bottom: #d5d5d5;
+    }
+}
+
+@keyframes outline {
+    0% {
+        box-shadow: 0 0.2px 0 1px rgba(26, 26, 26, 0.1),
+            0 0 3px 12px var(--primary-very-lighten-color);
+    }
+    100% {
+        box-shadow: 0 0.2px 0 1px var(--primary-color),
+            0 0 0.5px 3.5px var(--primary-lighten-color);
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica",
+        "Arial", sans-serif;
+}
+
+body {
+    background-color: var(--window-background);
+    color: var(--primary-text-color);
+    user-select: none;
+}
+
+img {
+    -webkit-user-drag: none;
+}
