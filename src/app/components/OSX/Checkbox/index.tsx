@@ -25,7 +25,7 @@ const Checkbox: React.FunctionComponent<CheckboxProps> = ({
                 onClick={() => setValue(!value)}
             />
             <span className="checkmark"></span>
-            {desc}
+            <p>{desc}</p>
         </label>
     );
 };

@@ -1,4 +1,7 @@
 :root {
+    --text-normal: 13px;
+    --text-category: 10px;
+
     --primary-color: hsl(219, 89%, 63%);
     --primary-very-lighten-color: hsla(219, 59%, 76%, 0.1);
     --primary-lighten-color: hsl(218, 85%, 71%);
@@ -51,7 +54,7 @@
         --primary-darken-color: #285dc0;
         --primary-text-color: #dfdfdf;
 
-        --window-background: #2f3031;
+        --window-background: #2f3133;
         --title-background: linear-gradient(#414343, #353637);
         --title-background-blur: #2a2b2c;
         --title-text: #b3b4b5;
