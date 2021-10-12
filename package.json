@@ -16,7 +16,7 @@
         "@babel/preset-typescript": "^7.10.4",
         "babel-loader": "^8.1.0",
         "css-loader": "^3.6.0",
-        "electron": "^9.0.5",
+        "electron": "^11.5.0",
         "html-webpack-plugin": "^4.3.0",
         "style-loader": "^1.2.1",
         "svg-url-loader": "^6.0.0",
